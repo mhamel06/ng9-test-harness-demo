@@ -20,10 +20,12 @@ describe('ListActivityComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListActivityComponent);
     component = fixture.componentInstance;
+    component.activityItems = [...MOCK_ACTIVITY];
+    fixture.detectChanges();
+
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
@@ -38,5 +40,17 @@ describe('ListActivityComponent', () => {
     const secondTransactionItem = transactionItemEls[1].componentInstance as TransactionItemComponent;
 
     expect(secondTransactionItem.item.amount).toEqual(50);
-  })
+  });
+
+  it('should call click transaction', ()=>{
+    fixture.detectChanges();
+    spyOn(component, 'viewTransaction');
+    const transactionItemEls = fixture.debugElement.queryAll(By.directive(TransactionItemComponent));
+    const secondTransactionItem = transactionItemEls[1];
+    const viewTransactionButton = secondTransactionItem.query(By.css('button'));
+    viewTransactionButton.triggerEventHandler('click', {});
+    fixture.detectChanges();
+    
+    expect(component.viewTransaction).toHaveBeenCalledWith(MOCK_ACTIVITY[1]);
+  });
 });

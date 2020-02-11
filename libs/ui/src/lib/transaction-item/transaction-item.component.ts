@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { EventEmitter } from '@angular/core';
 import { TransactionItem } from '../models/transaction-item.model';
 
 @Component({
@@ -10,12 +10,12 @@ import { TransactionItem } from '../models/transaction-item.model';
 export class TransactionItemComponent implements OnInit {
 
   @Input() item: TransactionItem;
-  @Output() btnClick = new EventEmitter();
+  @Output() btnClick = new EventEmitter<TransactionItem>();
 
   constructor() { }
 
   onButtonClick(e: any){
-    this.btnClick.emit(e);
+    this.btnClick.emit(this.item);
   }
   ngOnInit() {
   }

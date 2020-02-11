@@ -16,4 +16,7 @@ export class ListActivityComponent implements OnInit {
   ngOnInit() {
   }
 
+  viewTransaction(item: TransactionItem){
+    
+  }
 }
