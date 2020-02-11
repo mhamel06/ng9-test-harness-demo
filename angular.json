@@ -20,7 +20,7 @@
             "main": "apps/account-portal/src/main.ts",
             "polyfills": "apps/account-portal/src/polyfills.ts",
             "tsConfig": "apps/account-portal/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/account-portal/src/favicon.ico",
               "apps/account-portal/src/assets"
@@ -41,7 +41,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
