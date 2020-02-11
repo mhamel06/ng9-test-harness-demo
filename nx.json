@@ -1,0 +1,22 @@
+{
+  "npmScope": "ng9-comp-harness",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "account-portal": {
+      "tags": []
+    },
+    "account-portal-e2e": {
+      "tags": [],
+      "implicitDependencies": ["account-portal"]
+    }
+  }
+}
