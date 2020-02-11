@@ -17,6 +17,15 @@
     "account-portal-e2e": {
       "tags": [],
       "implicitDependencies": ["account-portal"]
+    },
+    "ui": {
+      "tags": []
+    },
+    "feature-activity": {
+      "tags": []
+    },
+    "feature-payments": {
+      "tags": []
     }
   }
 }

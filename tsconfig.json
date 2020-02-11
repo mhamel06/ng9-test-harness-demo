@@ -15,7 +15,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ng9-comp-harness/ui": ["libs/ui/src/index.ts"],
+      "@ng9-comp-harness/feature-activity": [
+        "libs/feature-activity/src/index.ts"
+      ],
+      "@ng9-comp-harness/feature-payments": [
+        "libs/feature-payments/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

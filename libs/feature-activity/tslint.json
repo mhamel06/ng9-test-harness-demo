@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "ng9CompHarness", "camelCase"],
+    "component-selector": [true, "element", "ng9-comp-harness", "kebab-case"]
+  }
+}

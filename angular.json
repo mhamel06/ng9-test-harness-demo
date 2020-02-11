@@ -123,6 +123,99 @@
           }
         }
       }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "ng9-comp-harness",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "tsConfig": "libs/ui/tsconfig.spec.json",
+            "setupFile": "libs/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "feature-activity": {
+      "projectType": "library",
+      "root": "libs/feature-activity",
+      "sourceRoot": "libs/feature-activity/src",
+      "prefix": "ng9-comp-harness",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature-activity/tsconfig.lib.json",
+              "libs/feature-activity/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature-activity/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature-activity/jest.config.js",
+            "tsConfig": "libs/feature-activity/tsconfig.spec.json",
+            "setupFile": "libs/feature-activity/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "feature-payments": {
+      "projectType": "library",
+      "root": "libs/feature-payments",
+      "sourceRoot": "libs/feature-payments/src",
+      "prefix": "ng9-comp-harness",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feature-payments/tsconfig.lib.json",
+              "libs/feature-payments/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feature-payments/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature-payments/jest.config.js",
+            "tsConfig": "libs/feature-payments/tsconfig.spec.json",
+            "setupFile": "libs/feature-payments/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
