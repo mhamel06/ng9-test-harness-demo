@@ -25,7 +25,9 @@
               "apps/account-portal/src/favicon.ico",
               "apps/account-portal/src/assets"
             ],
-            "styles": ["apps/account-portal/src/styles.scss"],
+            "styles": [
+              "apps/account-portal/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -83,7 +85,10 @@
               "apps/account-portal/tsconfig.app.json",
               "apps/account-portal/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/account-portal/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/account-portal/**"
+            ]
           }
         },
         "test": {
@@ -117,8 +122,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/account-portal-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/account-portal-e2e/**"]
+            "tsConfig": [
+              "apps/account-portal-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/account-portal-e2e/**"
+            ]
           }
         }
       }
@@ -136,7 +146,10 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/**"
+            ]
           }
         },
         "test": {
@@ -167,7 +180,10 @@
               "libs/feature-activity/tsconfig.lib.json",
               "libs/feature-activity/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/feature-activity/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature-activity/**"
+            ]
           }
         },
         "test": {
@@ -198,7 +214,10 @@
               "libs/feature-payments/tsconfig.lib.json",
               "libs/feature-payments/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/feature-payments/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/feature-payments/**"
+            ]
           }
         },
         "test": {
@@ -218,7 +237,8 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "333471c2-9e99-4382-b13f-94daa066ef6d"
   },
   "schematics": {
     "@nrwl/angular:application": {

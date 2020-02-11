@@ -4,6 +4,7 @@ import { TransactionItemComponent } from './transaction-item/transaction-item.co
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [TransactionItemComponent]
+  declarations: [TransactionItemComponent],
+  exports: [TransactionItemComponent]
 })
 export class UiModule {}

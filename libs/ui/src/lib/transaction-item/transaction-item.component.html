@@ -1,1 +1,13 @@
-<p>transaction-item works!</p>
+<div class="item-container">
+    <div class="row">
+        <div class="date">{{item.date | date}}</div>
+        <div class="amount">{{item.amount | currency}}</div>
+    </div>
+    <div class="row">
+        <div class="key">Description</div>
+        <div class="value">{{item.description}}</div>
+    </div>
+    <div class="row button">
+        <button (click)="onButtonClick($event)">View Transaction</button>
+    </div>
+</div>

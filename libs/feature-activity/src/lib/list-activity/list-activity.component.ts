@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionItem } from '@ng9-comp-harness/ui';
+import { MOCK_ACTIVITY } from '../models/mocks/activity.mock';
 
 @Component({
   selector: 'ng9-comp-harness-list-activity',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListActivityComponent implements OnInit {
 
+  activityItems: TransactionItem[] = [...MOCK_ACTIVITY];
+  
   constructor() { }
 
   ngOnInit() {

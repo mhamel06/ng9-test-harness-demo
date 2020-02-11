@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from 'events';
+import { TransactionItem } from '../models/transaction-item.model';
 
 @Component({
   selector: 'ng9-comp-harness-transaction-item',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionItemComponent implements OnInit {
 
+  @Input() item: TransactionItem;
+  @Output() btnClick = new EventEmitter();
+
   constructor() { }
 
+  onButtonClick(e: any){
+    this.btnClick.emit(e);
+  }
   ngOnInit() {
   }
 
