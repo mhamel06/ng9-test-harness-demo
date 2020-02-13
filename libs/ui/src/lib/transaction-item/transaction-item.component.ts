@@ -5,6 +5,7 @@ import { TransactionItem } from '../models/transaction-item.model';
 @Component({
   selector: 'ng9-comp-harness-transaction-item',
   templateUrl: './transaction-item.component.html',
+  styleUrls: ['./transaction-item.component.scss']
 })
 export class TransactionItemComponent {
 

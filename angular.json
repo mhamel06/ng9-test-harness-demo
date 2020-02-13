@@ -16,17 +16,17 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/account-portal",
-            "index": "apps/account-portal/src/index.html",
-            "main": "apps/account-portal/src/main.ts",
-            "polyfills": "apps/account-portal/src/polyfills.ts",
-            "tsConfig": "apps/account-portal/tsconfig.app.json",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/account-portal/src/favicon.ico",
-              "apps/account-portal/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "apps/account-portal/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },

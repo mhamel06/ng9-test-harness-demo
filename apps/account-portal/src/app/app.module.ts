@@ -10,7 +10,9 @@ import { FeaturePaymentsModule } from '../../../../libs/feature-payments/src';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([
+      {path: '', pathMatch: 'full', redirectTo:'activity'}
+    ]),
     FeatureActivityModule,
     FeaturePaymentsModule,
   ],
