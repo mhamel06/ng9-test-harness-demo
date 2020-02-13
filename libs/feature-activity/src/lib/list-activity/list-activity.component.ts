@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TransactionItem } from '@ng9-comp-harness/ui';
 import { MOCK_ACTIVITY } from '../models/mocks/activity.mock';
+import { TransactionItem } from '../../../../ui/src';
 
 @Component({
   selector: 'ng9-comp-harness-list-activity',

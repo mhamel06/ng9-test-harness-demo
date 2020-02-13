@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Route } from '@angular/router';
 import { ListPaymentsComponent } from './list-payments/list-payments.component';
-import {UiModule} from '@ng9-comp-harness/ui';
+import { UiModule } from '../../../ui/src';
 
 export const featurePaymentsRoutes: Route[] = [
   {path: 'payments', component: ListPaymentsComponent}

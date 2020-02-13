@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import {By} from '@angular/platform-browser';
 import { ListActivityComponent } from './list-activity.component';
-import { UiModule, TransactionItem, TransactionItemComponent, TransactionItemHarness } from '@ng9-comp-harness/ui';
 import { MOCK_ACTIVITY } from '../models/mocks/activity.mock';
 import {HarnessLoader } from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
+import { TransactionItem, UiModule } from '../../../../ui/src';
 
 describe('ListActivityComponent', () => {
   let component: ListActivityComponent;

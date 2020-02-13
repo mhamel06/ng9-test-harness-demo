@@ -1,4 +1,4 @@
-import { TransactionItem } from '@ng9-comp-harness/ui';
+import { TransactionItem } from '../../../../../ui/src';
 
 export const MOCK_ACTIVITY: TransactionItem[] = [
     {
