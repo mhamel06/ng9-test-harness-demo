@@ -1,4 +1,6 @@
-<ng9-comp-harness-transaction-item *ngFor="let transactionItem of activityItems;"
-[item]='transactionItem'
-(btnClick)='viewTransaction($event)'
-></ng9-comp-harness-transaction-item>
+<ng9-comp-harness-transaction-item
+        *ngFor="let transactionItem of activityItems;"
+        [item]='transactionItem'
+        (clickViewTransaction)='viewTransaction($event)'>
+
+</ng9-comp-harness-transaction-item>

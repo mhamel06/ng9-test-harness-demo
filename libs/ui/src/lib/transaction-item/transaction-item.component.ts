@@ -13,6 +13,8 @@ export class TransactionItemComponent {
   @Output() clickViewTransaction = new EventEmitter<TransactionItem>();
 
   viewTransaction(){
-    this.btnClick.emit(this.item);
+    if(this.item.pending) return;
+
+    this.clickViewTransaction.emit(this.item);
   }
 }

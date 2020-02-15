@@ -5,9 +5,9 @@
     </div>
     <div class="row">
         <div class="key">Description</div>
-        <div class="value">{{item.description}}</div>
+        <div class="value">{{item.description}} <span *ngIf='item.pending'>(Pending)</span></div>
     </div>
     <div class="row button">
-        <button (click)="viewTransaction()">View Transaction</button>
+        <button [disabled]='item.pending' (click)="viewTransaction()">View Transaction</button>
     </div>
 </div>

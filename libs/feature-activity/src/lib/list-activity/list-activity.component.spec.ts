@@ -5,7 +5,7 @@ import { ListActivityComponent } from './list-activity.component';
 import { MOCK_ACTIVITY } from '../models/mocks/activity.mock';
 import {HarnessLoader } from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
-import { TransactionItem, UiModule } from '../../../../ui/src';
+import { TransactionItem, TransactionItemComponent, TransactionItemHarness, UiModule } from '../../../../ui/src';
 
 describe('ListActivityComponent', () => {
   let component: ListActivityComponent;
@@ -50,7 +50,7 @@ describe('ListActivityComponent', () => {
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
 
-    // By directive works as well
+    // By directive works as well, but may not always be exported
     // const transactionItemEls = fixture.debugElement.queryAll(By.directive(TransactionItemComponent));
     const transactionItemEls = fixture.debugElement.queryAll(By.css('ng9-comp-harness-transaction-item'));
     const firstTransaction = transactionItemEls[0];
