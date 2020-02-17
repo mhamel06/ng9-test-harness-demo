@@ -5,6 +5,7 @@ import { TransactionItem } from '../models/transaction-item.model';
 @Component({
   selector: 'ng9-comp-harness-transaction-item',
   templateUrl: './transaction-item.component.html',
+  styleUrls: ['./transaction-item.component.scss']
 })
 export class TransactionItemComponent {
 
@@ -12,6 +13,8 @@ export class TransactionItemComponent {
   @Output() clickViewTransaction = new EventEmitter<TransactionItem>();
 
   viewTransaction(){
-    this.btnClick.emit(this.item);
+    if(this.item.pending) return;
+
+    this.clickViewTransaction.emit(this.item);
   }
 }

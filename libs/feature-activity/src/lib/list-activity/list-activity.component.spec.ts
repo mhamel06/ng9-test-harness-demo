@@ -50,7 +50,7 @@ describe('ListActivityComponent', () => {
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
 
-    // By directive works as well
+    // By directive works as well, but may not always be exported
     // const transactionItemEls = fixture.debugElement.queryAll(By.directive(TransactionItemComponent));
     const transactionItemEls = fixture.debugElement.queryAll(By.css('ng9-comp-harness-transaction-item'));
     const firstTransaction = transactionItemEls[0];
@@ -71,6 +71,7 @@ describe('ListActivityComponent', () => {
     
     expect(component.viewTransaction).toHaveBeenCalledWith(MOCK_ACTIVITY[0]);
   });
+
   it('should call click transaction with amount of $50.00', async()=>{
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
@@ -78,7 +79,39 @@ describe('ListActivityComponent', () => {
     const transactionItemHarness = await loader.getHarness(TransactionItemHarness.with({itemAmount: '$59.99'}));
 
     await transactionItemHarness.clickViewTransactionButton();
-    
+
     expect(component.viewTransaction).toHaveBeenCalledWith(MOCK_ACTIVITY[2]);
+  });
+
+
+  it('should not call viewTransaction on pending transactions', async()=>{
+    fixture.detectChanges();
+    spyOn(component, 'viewTransaction');
+
+    const transactionItemEls = fixture.debugElement.queryAll(By.css('ng9-comp-harness-transaction-item'))
+      .filter(el => !!el.query(By.css('button[disabled]')));
+
+    expect(transactionItemEls.length).toEqual(1);
+
+    const firstDisabledTransaction = transactionItemEls[0];
+    const viewTransactionButton = firstDisabledTransaction.query(By.css('button'));
+    viewTransactionButton.triggerEventHandler('click', {});
+
+    fixture.detectChanges();
+
+    expect(component.viewTransaction).not.toHaveBeenCalled();
+  });
+
+  it('should not call viewTransaction on pending transactions: with harness', async()=>{
+    fixture.detectChanges();
+    spyOn(component, 'viewTransaction');
+
+    const transactionItemHarness = await loader.getHarness(TransactionItemHarness.with({
+      transactionPending: true
+    }));
+
+    await transactionItemHarness.clickViewTransactionButton();
+
+    expect(component.viewTransaction).not.toHaveBeenCalled();
   });
 });

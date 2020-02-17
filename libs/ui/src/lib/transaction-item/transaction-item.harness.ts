@@ -1,7 +1,8 @@
 import { ComponentHarness, BaseHarnessFilters, HarnessPredicate } from '@angular/cdk/testing';
 
 interface TransactionItemHarnessFilters extends BaseHarnessFilters{
-    itemAmount: string;
+    itemAmount?: string;
+    transactionPending?: boolean;
 }
 
 export class TransactionItemHarness extends ComponentHarness{
@@ -12,7 +13,9 @@ export class TransactionItemHarness extends ComponentHarness{
     static with(options: TransactionItemHarnessFilters): HarnessPredicate<TransactionItemHarness>{
         return new HarnessPredicate(TransactionItemHarness, options)
         .addOption('Item amount', options.itemAmount, 
-            (harness, amount) => HarnessPredicate.stringMatches(harness.getItemAmount(), amount));
+            (harness, amount) => HarnessPredicate.stringMatches(harness.getItemAmount(), amount))
+          .addOption('Transaction pending', options.transactionPending,
+            (harness, pending) => harness.isViewTransactionBtnDisabled().then(buttonDisabled => buttonDisabled === pending));
     }
     /*
     Quote from docs
@@ -21,6 +24,11 @@ export class TransactionItemHarness extends ComponentHarness{
     async clickViewTransactionButton(){
         const transactionButton = await this.getViewTransactionButton();
         return transactionButton.click();
+    }
+
+    async isViewTransactionBtnDisabled(){
+        const viewTransactionButton = await this.getViewTransactionButton();
+        return viewTransactionButton.matchesSelector('[disabled]');
     }
 
     async getItemAmount(){

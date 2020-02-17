@@ -8,7 +8,7 @@
           "style": "scss"
         }
       },
-      "root": "apps/account-portal",
+      "root": ".",
       "sourceRoot": "apps/account-portal/src",
       "prefix": "ng9-comp-harness",
       "architect": {
