@@ -72,7 +72,7 @@ describe('ListActivityComponent', () => {
     expect(component.viewTransaction).toHaveBeenCalledWith(MOCK_ACTIVITY[0]);
   });
 
-  it('should call click transaction with amount of $50.00', async()=>{
+  it('should call click transaction with amount of $59.99', async()=>{
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
 
@@ -84,13 +84,21 @@ describe('ListActivityComponent', () => {
   });
 
 
-  it('should not call viewTransaction on pending transactions', async()=>{
+  it('should not call viewTransaction on the first pending transaction', async()=>{
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
 
+    /*
+    * Find all the transaction item elements and only return the elements
+    * that have a disabled button.
+    * */
     const transactionItemEls = fixture.debugElement.queryAll(By.css('ng9-comp-harness-transaction-item'))
       .filter(el => !!el.query(By.css('button[disabled]')));
 
+    /*
+    * Confirm there is one element in the filtered list. If the list
+    * is of length 0, the test may pass with a false positive.
+    * */
     expect(transactionItemEls.length).toEqual(1);
 
     const firstDisabledTransaction = transactionItemEls[0];
@@ -102,14 +110,22 @@ describe('ListActivityComponent', () => {
     expect(component.viewTransaction).not.toHaveBeenCalled();
   });
 
-  it('should not call viewTransaction on pending transactions: with harness', async()=>{
+  it('should not call viewTransaction on first pending transaction: with harness', async()=>{
     fixture.detectChanges();
     spyOn(component, 'viewTransaction');
 
+    /*
+    * Find the first transactionItem that is marked as pending
+    * */
     const transactionItemHarness = await loader.getHarness(TransactionItemHarness.with({
       transactionPending: true
     }));
 
+    /*
+    * No need to verify that the query returned at least one item like above.
+    * If clickViewTransactionButton() is called but no items are found the test
+    * will fail.
+    * */
     await transactionItemHarness.clickViewTransactionButton();
 
     expect(component.viewTransaction).not.toHaveBeenCalled();
